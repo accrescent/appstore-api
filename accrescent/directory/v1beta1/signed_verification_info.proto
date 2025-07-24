@@ -1,0 +1,26 @@
+// Copyright 2025 Logan Magee
+//
+// SPDX-License-Identifier: AGPL-3.0-only
+
+syntax = "proto3";
+
+package accrescent.directory.v1beta1;
+
+option java_multiple_files = true;
+option java_package = "app.accrescent.directory.v1beta1";
+
+// Verification information for a particular app in a given release channel
+message SignedVerificationInfo {
+  // A VerificationInfo message.
+  optional bytes verification_info = 1;
+
+  // Map of base64-encoded public keys to their associated base16-encoded
+  // signatures. The client chooses the correct signature to verify based on its
+  // single, hardcoded public key.
+  //
+  // Because this data is untrusted, the client MUST enforce that its hardcoded
+  // public key is present here. Otherwise, if the client falls back to a
+  // previous hardcoded key, an attacker could force a key downgrade, making key
+  // rotation useless.
+  map<string, string> signatures = 2;
+}
