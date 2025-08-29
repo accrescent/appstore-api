@@ -10,8 +10,8 @@ import "accrescent/directory/v1/get_app_download_info_request.proto";
 import "accrescent/directory/v1/get_app_download_info_response.proto";
 import "accrescent/directory/v1/get_app_listing_request.proto";
 import "accrescent/directory/v1/get_app_listing_response.proto";
-import "accrescent/directory/v1/get_update_info_request.proto";
-import "accrescent/directory/v1/get_update_info_response.proto";
+import "accrescent/directory/v1/get_app_package_info_request.proto";
+import "accrescent/directory/v1/get_app_package_info_response.proto";
 import "accrescent/directory/v1/list_app_listings_request.proto";
 import "accrescent/directory/v1/list_app_listings_response.proto";
 
@@ -26,9 +26,9 @@ service DirectoryService {
   // Retrieves a list of unique app listings.
   rpc ListAppListings(ListAppListingsRequest) returns (ListAppListingsResponse);
 
+  // Retrieves an app's package information.
+  rpc GetAppPackageInfo(GetAppPackageInfoRequest) returns (GetAppPackageInfoResponse);
+
   // Retrieves an app's download information
   rpc GetAppDownloadInfo(GetAppDownloadInfoRequest) returns (GetAppDownloadInfoResponse);
-
-  // Retrieves an app's latest update information.
-  rpc GetUpdateInfo(GetUpdateInfoRequest) returns (GetUpdateInfoResponse);
 }

@@ -6,9 +6,6 @@ syntax = "proto3";
 
 package accrescent.directory.v1;
 
-import "accrescent/directory/v1/app_listing_view.proto";
-import "accrescent/directory/v1/device_attributes.proto";
-
 option java_multiple_files = true;
 option java_package = "app.accrescent.directory.v1";
 
@@ -28,12 +25,7 @@ message ListAppListingsRequest {
   // page continuation token (if supplied).
   optional uint32 skip = 3;
 
-  // The contents of the app listing which should be returned. If unspecified,
-  // defaults to BASIC.
-  optional AppListingView view = 4;
-
-  // The current device's hardware and OS attributes used to determine app
-  // compatibility, download size, etc. If unspecified, some app listing fields
-  // may be omitted in the response (see AppListing for more details).
-  DeviceAttributes device_attributes = 5;
+  // The preferred languages for listings as BCP-47 language tags in order from
+  // most preferred to least preferred.
+  repeated string preferred_languages = 4;
 }

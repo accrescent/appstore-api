@@ -6,8 +6,6 @@ syntax = "proto3";
 
 package accrescent.directory.v1;
 
-import "accrescent/directory/v1/compatibility.proto";
-import "accrescent/directory/v1/download_size.proto";
 import "accrescent/directory/v1/image.proto";
 
 option java_multiple_files = true;
@@ -31,16 +29,4 @@ message AppListing {
 
   // The app's primary icon, usually the same as the launcher icon.
   Image icon = 5;
-
-  // The display name of the app's latest version, e.g., "1.4.2".
-  optional string version_name = 6;
-
-  // Compatibility information between the app and the device attributes
-  // specified in the request. If no device attributes were specified, this
-  // field is not populated.
-  Compatibility compatibility = 7;
-
-  // The download size for this app. If no device attributes were specified or
-  // the app is not compatible, this field is not populated.
-  DownloadSize download_size = 8;
 }
