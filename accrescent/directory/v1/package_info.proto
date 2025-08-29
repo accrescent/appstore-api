@@ -9,8 +9,11 @@ package accrescent.directory.v1;
 option java_multiple_files = true;
 option java_package = "app.accrescent.directory.v1";
 
-// Download size information for an app.
-message DownloadSize {
-  // The total size in bytes of all uncompressed assets in this download.
-  optional uint32 uncompressed_total = 1;
+// Package information for a given app.
+message PackageInfo {
+  // The app's version code.
+  optional uint32 version_code = 1;
+
+  // The app's human-readable version name.
+  optional string version_name = 2;
 }

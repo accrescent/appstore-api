@@ -6,9 +6,6 @@ syntax = "proto3";
 
 package accrescent.directory.v1;
 
-import "accrescent/directory/v1/device_attributes.proto";
-import "accrescent/directory/v1/release_channel.proto";
-
 option java_multiple_files = true;
 option java_package = "app.accrescent.directory.v1";
 
@@ -17,12 +14,7 @@ message GetAppListingRequest {
   // The application ID of the listing to retrieve. Required.
   optional string app_id = 1;
 
-  // The current device's hardware and OS attributes used to determine app
-  // compatibility, download size, etc. If unspecified, some app listing fields
-  // may be omitted in the response (see AppListing for more details).
-  DeviceAttributes device_attributes = 2;
-
-  // The release channel to retrieve a listing for. If unspecified, defaults to
-  // the stable channel.
-  ReleaseChannel release_channel = 3;
+  // The preferred languages for listings as BCP-47 language tags in order from
+  // most preferred to least preferred.
+  repeated string preferred_languages = 2;
 }
