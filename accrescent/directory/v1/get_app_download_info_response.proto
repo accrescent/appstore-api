@@ -24,7 +24,7 @@ message GetAppDownloadInfoResponse {
   // 1. The app is compatible with the device specified in the request (as can
   //    be determined by this message's "compatibility" field).
   // 2. If base_version_code was specified in the request, it is lower than the
-  //    latest version code in the release channel specified in the request.
+  //    latest version code of the app.
   //
   // In other words, it will only be populated if there are APKs available for
   // download which are newer than those specified in the request.

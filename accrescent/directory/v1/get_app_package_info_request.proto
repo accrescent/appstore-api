@@ -6,8 +6,6 @@ syntax = "proto3";
 
 package accrescent.directory.v1;
 
-import "accrescent/directory/v1/release_channel.proto";
-
 option java_multiple_files = true;
 option java_package = "app.accrescent.directory.v1";
 
@@ -15,8 +13,4 @@ option java_package = "app.accrescent.directory.v1";
 message GetAppPackageInfoRequest {
   // The application ID of the app to retrieve package info for. Required.
   optional string app_id = 1;
-
-  // The release channel to retrieve package info for. If unspecified, defaults
-  // to the stable channel.
-  ReleaseChannel release_channel = 2;
 }
