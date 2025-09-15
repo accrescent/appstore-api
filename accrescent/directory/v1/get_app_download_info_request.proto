@@ -23,5 +23,5 @@ message GetAppDownloadInfoRequest {
   // The base version of the app to get download info from (almost always the
   // currently installed version). If unspecified, indicates that this is an
   // initial installation instead of an update.
-  optional uint32 base_version_code = 3;
+  optional uint64 base_version_code = 3;
 }
