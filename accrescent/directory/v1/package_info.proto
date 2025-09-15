@@ -12,7 +12,7 @@ option java_package = "app.accrescent.directory.v1";
 // Package information for a given app.
 message PackageInfo {
   // The app's version code.
-  optional uint32 version_code = 1;
+  optional uint64 version_code = 1;
 
   // The app's human-readable version name.
   optional string version_name = 2;
