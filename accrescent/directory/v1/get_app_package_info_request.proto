@@ -6,11 +6,28 @@ syntax = "proto3";
 
 package accrescent.directory.v1;
 
+import "buf/validate/validate.proto";
+
 option java_multiple_files = true;
 option java_package = "app.accrescent.directory.v1";
 
 // Request defining parameters for retrieving an app's package info.
 message GetAppPackageInfoRequest {
-  // The application ID of the app to retrieve package info for. Required.
-  optional string app_id = 1;
+  // The application ID of the app to retrieve package info for.
+  optional string app_id = 1 [
+    (buf.validate.field).required = true,
+    // According to
+    // https://developer.android.com/build/configure-app-module#set-application-id,
+    // the app ID must conform to the following rules:
+    //
+    // 1. It must have at least two segments (one or more dots).
+    // 2. Each segment must start with a letter.
+    // 3. All characters must be alphanumeric or an underscore [a-zA-Z0-9_].
+    //
+    // The maximum length is imposed by us to set a reasonable limit.
+    (buf.validate.field).string = {
+      pattern: "^([a-zA-Z][a-zA-Z0-9_]*\\.)+[a-zA-Z][a-zA-Z0-9_]*$"
+      max_bytes: 128
+    }
+  ];
 }

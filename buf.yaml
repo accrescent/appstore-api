@@ -8,3 +8,4 @@ modules:
     name: buf.build/accrescent/directory-api
 deps:
   - buf.build/accrescent/android-bundle:v1.0.0
+  - buf.build/bufbuild/protovalidate:v1.0.0
