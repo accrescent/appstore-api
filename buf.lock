@@ -2,8 +2,8 @@
 version: v2
 deps:
   - name: buf.build/accrescent/android-bundle
-    commit: a252c4f5147a43d1a70eacae5d0ba04c
-    digest: b5:77a466583454d6a5e9653f6a2a1a1cfa40668944df4f5a2e310480743150c901c9c1832b66a1c7a5139ff13bf92974882e5fb22ad52e44d885a338e781509b89
+    commit: 97750ecf9f0342459e129be7d1769ae1
+    digest: b5:b05577a605e5eceb025a9c2d167169c74080a2fd25f31fd8aa761f71fd32e3c23e37a263c1b4afe168a5fb4afbe08f69fe551a29c433833a1621b3f424cc6d89
   - name: buf.build/bufbuild/protovalidate
     commit: 52f32327d4b045a79293a6ad4e7e1236
     digest: b5:cbabc98d4b7b7b0447c9b15f68eeb8a7a44ef8516cb386ac5f66e7fd4062cd6723ed3f452ad8c384b851f79e33d26e7f8a94e2b807282b3def1cd966c7eace97
