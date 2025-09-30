@@ -6,14 +6,19 @@ syntax = "proto3";
 
 package accrescent.directory.v1;
 
+import "buf/validate/validate.proto";
+
 option java_multiple_files = true;
 option java_package = "app.accrescent.directory.v1";
 
 // Package information for a given app.
 message PackageInfo {
   // The app's version code.
-  optional uint64 version_code = 1;
+  optional uint64 version_code = 1 [
+    (buf.validate.field).required = true,
+    (buf.validate.field).uint64.gt = 0
+  ];
 
   // The app's human-readable version name.
-  optional string version_name = 2;
+  optional string version_name = 2 [(buf.validate.field).required = true];
 }

@@ -8,6 +8,7 @@ package accrescent.directory.v1;
 
 import "accrescent/directory/v1/app_download_info.proto";
 import "accrescent/directory/v1/compatibility.proto";
+import "buf/validate/validate.proto";
 
 option java_multiple_files = true;
 option java_package = "app.accrescent.directory.v1";
@@ -16,7 +17,7 @@ option java_package = "app.accrescent.directory.v1";
 message GetAppDownloadInfoResponse {
   // Compatibility information between the app and the device attributes
   // specified in the request.
-  Compatibility compatibility = 1;
+  Compatibility compatibility = 1 [(buf.validate.field).required = true];
 
   // The app's download info. This field will be populated if and only if all of
   // the following statements apply:
@@ -29,4 +30,13 @@ message GetAppDownloadInfoResponse {
   // In other words, it will only be populated if there are APKs available for
   // download which are newer than those specified in the request.
   AppDownloadInfo app_download_info = 2;
+
+  option (buf.validate.message).cel = {
+    id: "app_download_info.not_present_if_incompatible"
+    message: "app download info must not be present if the app is incompatible"
+    expression:
+      "this.compatibility.level"
+      "== accrescent.directory.v1.CompatibilityLevel.COMPATIBILITY_LEVEL_COMPATIBLE"
+      "|| !has(this.app_download_info)"
+  };
 }

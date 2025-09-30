@@ -8,6 +8,7 @@ package accrescent.directory.v1;
 
 import "accrescent/directory/v1/package_info.proto";
 import "accrescent/directory/v1/split_download_info.proto";
+import "buf/validate/validate.proto";
 
 option java_multiple_files = true;
 option java_package = "app.accrescent.directory.v1";
@@ -15,8 +16,8 @@ option java_package = "app.accrescent.directory.v1";
 // App download information for a given app.
 message AppDownloadInfo {
   // Download info for each individual split APK.
-  repeated SplitDownloadInfo split_download_info = 1;
+  repeated SplitDownloadInfo split_download_info = 1 [(buf.validate.field).repeated.min_items = 1];
 
   // Package information for this app.
-  PackageInfo package_info = 2;
+  PackageInfo package_info = 2 [(buf.validate.field).required = true];
 }
