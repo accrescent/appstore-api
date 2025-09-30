@@ -34,9 +34,6 @@ message GetAppDownloadInfoResponse {
   option (buf.validate.message).cel = {
     id: "app_download_info.not_present_if_incompatible"
     message: "app download info must not be present if the app is incompatible"
-    expression:
-      "this.compatibility.level"
-      "== accrescent.directory.v1.CompatibilityLevel.COMPATIBILITY_LEVEL_COMPATIBLE"
-      "|| !has(this.app_download_info)"
+    expression: "this.compatibility.compatible || !has(this.app_download_info)"
   };
 }

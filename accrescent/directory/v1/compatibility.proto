@@ -6,7 +6,6 @@ syntax = "proto3";
 
 package accrescent.directory.v1;
 
-import "accrescent/directory/v1/compatibility_level.proto";
 import "buf/validate/validate.proto";
 
 option java_multiple_files = true;
@@ -14,12 +13,10 @@ option java_package = "app.accrescent.directory.v1";
 
 // Compatibility of an app with a given device specification.
 message Compatibility {
-  // The level of compatibility.
-  optional CompatibilityLevel level = 1 [
-    (buf.validate.field).required = true,
-    (buf.validate.field).enum = {
-      defined_only: true
-      not_in: [0]
-    }
-  ];
+  // Whether the app is compatible with the provided device attributes.
+  //
+  // If the app is compatible, it should install and run successfully. If it is
+  // not, installation should not be attempted because the app is fundamentally
+  // incompatible with the provided device attributes in a crucial way.
+  optional bool compatible = 1 [(buf.validate.field).required = true];
 }
