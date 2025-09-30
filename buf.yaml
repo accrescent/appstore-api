@@ -9,3 +9,7 @@ modules:
 deps:
   - buf.build/accrescent/android-bundle:v1.1.0
   - buf.build/bufbuild/protovalidate:v1.0.0
+lint:
+  use:
+    - STANDARD
+    - COMMENTS
