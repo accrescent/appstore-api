@@ -12,8 +12,9 @@ import "accrescent/directory/v1/split_download_info.proto";
 option java_multiple_files = true;
 option java_package = "app.accrescent.directory.v1";
 
+// App download information for a given app.
 message AppDownloadInfo {
-  // Download info for each individual split APK
+  // Download info for each individual split APK.
   repeated SplitDownloadInfo split_download_info = 1;
 
   // Package information for this app.

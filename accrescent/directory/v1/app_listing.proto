@@ -13,7 +13,7 @@ option java_package = "app.accrescent.directory.v1";
 
 // A localized store listing for a given app.
 message AppListing {
-  // The application ID this listing is associated with
+  // The application ID this listing is associated with.
   optional string app_id = 1;
 
   // The language of this listing's fields as a BCP-47 tag.

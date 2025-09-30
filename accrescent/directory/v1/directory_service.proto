@@ -29,6 +29,6 @@ service DirectoryService {
   // Retrieves an app's package information.
   rpc GetAppPackageInfo(GetAppPackageInfoRequest) returns (GetAppPackageInfoResponse);
 
-  // Retrieves an app's download information
+  // Retrieves an app's download information.
   rpc GetAppDownloadInfo(GetAppDownloadInfoRequest) returns (GetAppDownloadInfoResponse);
 }

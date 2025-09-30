@@ -12,7 +12,7 @@ import "accrescent/directory/v1/compatibility.proto";
 option java_multiple_files = true;
 option java_package = "app.accrescent.directory.v1";
 
-// Response to requesting an app's download info
+// Response to requesting an app's download info.
 message GetAppDownloadInfoResponse {
   // Compatibility information between the app and the device attributes
   // specified in the request.
