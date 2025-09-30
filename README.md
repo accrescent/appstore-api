@@ -20,6 +20,9 @@ available in the store. Specifically, it allows clients to:
 - Determine whether an app is compatible with a device
 - ...and more
 
+API definitions are published to [Buf] at the [directory API BSR repository], which also generates
+client SDKs.
+
 ## Versioning policy
 
 This project uses [Semantic Versioning]. The public API consists of the gRPC API defined in this
@@ -28,5 +31,7 @@ implementations. That is, API clients will experience breaking changes only in a
 Semantic Versioning rules; however, server implementers may experience breaking changes across minor
 versions.
 
+[Buf]: https://buf.build
 [Buf-generated SDKs]: https://buf.build/accrescent/directory-api/sdks
+[directory API BSR repository]: https://buf.build/accrescent/directory-api
 [semantic versioning]: https://semver.org
