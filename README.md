@@ -19,3 +19,14 @@ available in the store. Specifically, it allows clients to:
 - Fetch app download information
 - Determine whether an app is compatible with a device
 - ...and more
+
+## Versioning policy
+
+This project uses [Semantic Versioning]. The public API consists of the gRPC API defined in this
+repository and the [Buf-generated SDKs] for client implementations but _not_ for server
+implementations. That is, API clients will experience breaking changes only in accordance with
+Semantic Versioning rules; however, server implementers may experience breaking changes across minor
+versions.
+
+[Buf-generated SDKs]: https://buf.build/accrescent/directory-api/sdks
+[semantic versioning]: https://semver.org
