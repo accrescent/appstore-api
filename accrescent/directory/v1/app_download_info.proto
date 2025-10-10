@@ -6,7 +6,6 @@ syntax = "proto3";
 
 package accrescent.directory.v1;
 
-import "accrescent/directory/v1/package_info.proto";
 import "accrescent/directory/v1/split_download_info.proto";
 import "buf/validate/validate.proto";
 
@@ -17,7 +16,4 @@ option java_package = "app.accrescent.directory.v1";
 message AppDownloadInfo {
   // Download info for each individual split APK.
   repeated SplitDownloadInfo split_download_info = 1 [(buf.validate.field).repeated.min_items = 1];
-
-  // Package information for this app.
-  PackageInfo package_info = 2 [(buf.validate.field).required = true];
 }
