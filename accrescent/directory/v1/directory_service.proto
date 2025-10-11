@@ -44,5 +44,6 @@ service DirectoryService {
   //
   // - INVALID_ARGUMENT: the request parameters are invalid
   // - NOT_FOUND: an app with the provided ID could not be found
+  // - FAILED_PRECONDITION: the app is incompatible with the specified device
   rpc GetAppDownloadInfo(GetAppDownloadInfoRequest) returns (GetAppDownloadInfoResponse);
 }
