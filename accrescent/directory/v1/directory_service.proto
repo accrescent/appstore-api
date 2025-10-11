@@ -21,14 +21,28 @@ option java_package = "app.accrescent.directory.v1";
 // Service providing a directory of all Accrescent apps.
 service DirectoryService {
   // Retrieves a single app's listing.
+  //
+  // The following status codes have defined meanings:
+  //
+  // - INVALID_ARGUMENT: the request parameters are invalid
+  // - NOT_FOUND: an app with the provided ID could not be found
   rpc GetAppListing(GetAppListingRequest) returns (GetAppListingResponse);
 
   // Retrieves a list of unique app listings.
   rpc ListAppListings(ListAppListingsRequest) returns (ListAppListingsResponse);
 
   // Retrieves an app's package information.
+  //
+  // The following status codes have defined meanings:
+  //
+  // - INVALID_ARGUMENT: the request parameters are invalid
   rpc GetAppPackageInfo(GetAppPackageInfoRequest) returns (GetAppPackageInfoResponse);
 
   // Retrieves an app's download information.
+  //
+  // The following status codes have defined meanings:
+  //
+  // - INVALID_ARGUMENT: the request parameters are invalid
+  // - NOT_FOUND: an app with the provided ID could not be found
   rpc GetAppDownloadInfo(GetAppDownloadInfoRequest) returns (GetAppDownloadInfoResponse);
 }
