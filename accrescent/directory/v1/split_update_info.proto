@@ -1,0 +1,24 @@
+// Copyright 2025 Logan Magee
+//
+// SPDX-License-Identifier: MPL-2.0
+
+syntax = "proto3";
+
+package accrescent.directory.v1;
+
+import "buf/validate/validate.proto";
+
+option java_multiple_files = true;
+option java_package = "app.accrescent.directory.v1";
+
+// Update info for an individual split APK.
+message SplitUpdateInfo {
+  // The download size in bytes of this individual split APK.
+  optional uint32 apk_download_size = 1 [(buf.validate.field).required = true];
+
+  // The URL of the APK which can be retrieved with a simple HTTP GET.
+  optional string apk_url = 2 [
+    (buf.validate.field).required = true,
+    (buf.validate.field).string.uri = true
+  ];
+}

@@ -12,6 +12,8 @@ import "accrescent/directory/v1/get_app_listing_request.proto";
 import "accrescent/directory/v1/get_app_listing_response.proto";
 import "accrescent/directory/v1/get_app_package_info_request.proto";
 import "accrescent/directory/v1/get_app_package_info_response.proto";
+import "accrescent/directory/v1/get_app_update_info_request.proto";
+import "accrescent/directory/v1/get_app_update_info_response.proto";
 import "accrescent/directory/v1/list_app_listings_request.proto";
 import "accrescent/directory/v1/list_app_listings_response.proto";
 
@@ -46,4 +48,13 @@ service DirectoryService {
   // - NOT_FOUND: an app with the provided ID could not be found
   // - FAILED_PRECONDITION: the app is incompatible with the specified device
   rpc GetAppDownloadInfo(GetAppDownloadInfoRequest) returns (GetAppDownloadInfoResponse);
+
+  // Retrieves an app's update information.
+  //
+  // The following status codes have defined meanings:
+  //
+  // - INVALID_ARGUMENT: the request parameters are invalid
+  // - NOT_FOUND: an app with the provided ID could not be found
+  // - FAILED_PRECONDITION: the app is incompatible with the specified device
+  rpc GetAppUpdateInfo(GetAppUpdateInfoRequest) returns (GetAppUpdateInfoResponse);
 }

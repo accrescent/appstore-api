@@ -1,0 +1,16 @@
+// Copyright 2025 Logan Magee
+//
+// SPDX-License-Identifier: MPL-2.0
+
+syntax = "proto3";
+
+package accrescent.directory.v1;
+
+option java_multiple_files = true;
+option java_package = "app.accrescent.directory.v1";
+
+// Response to requesting an app's update info.
+message GetAppUpdateInfoResponse {
+  // The app's update info. Present if and only if the app is not up-to-date.
+  AppUpdateInfo app_update_info = 1;
+}

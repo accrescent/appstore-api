@@ -7,17 +7,13 @@ syntax = "proto3";
 package accrescent.directory.v1;
 
 import "accrescent/directory/v1/app_download_info.proto";
+import "buf/validate/validate.proto";
 
 option java_multiple_files = true;
 option java_package = "app.accrescent.directory.v1";
 
 // Response to requesting an app's download info.
 message GetAppDownloadInfoResponse {
-  // The app's download info. This field will not be populated if
-  // base_version_code was specified in the request and is lower than the latest
-  // version code of the app.
-  //
-  // In other words, it will only be populated if there are APKs available for
-  // download which are newer than those specified in the request.
-  AppDownloadInfo app_download_info = 1;
+  // The app's download info.
+  AppDownloadInfo app_download_info = 1 [(buf.validate.field).required = true];
 }
