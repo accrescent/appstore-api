@@ -4,12 +4,12 @@
 
 syntax = "proto3";
 
-package accrescent.directory.v1;
+package accrescent.appstore.v1;
 
 import "buf/validate/validate.proto";
 
 option java_multiple_files = true;
-option java_package = "app.accrescent.directory.v1";
+option java_package = "app.accrescent.appstore.v1";
 
 // Update info for an individual split APK.
 message SplitUpdateInfo {
