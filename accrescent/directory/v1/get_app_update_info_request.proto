@@ -1,4 +1,4 @@
-// Copyright 2024 Logan Magee
+// Copyright 2025 Logan Magee
 //
 // SPDX-License-Identifier: MPL-2.0
 
@@ -12,9 +12,9 @@ import "buf/validate/validate.proto";
 option java_multiple_files = true;
 option java_package = "app.accrescent.directory.v1";
 
-// Request defining parameters for retrieving an app's download info.
-message GetAppDownloadInfoRequest {
-  // The application ID of the download info to retrieve.
+// Request defining parameters to retrieving an app's update info.
+message GetAppUpdateInfoRequest {
+  // The application ID of the update info to retrieve.
   optional string app_id = 1 [
     (buf.validate.field).required = true,
     // According to
@@ -35,4 +35,11 @@ message GetAppDownloadInfoRequest {
   // The current device's hardware and OS attributes used to determine app
   // compatibility, download size, etc.
   DeviceAttributes device_attributes = 2 [(buf.validate.field).required = true];
+
+  // The base version of the app to get update info from, i.e., the currently
+  // installed version.
+  optional uint64 base_version_code = 3 [
+    (buf.validate.field).required = true,
+    (buf.validate.field).uint64.gt = 0
+  ];
 }
