@@ -4,10 +4,10 @@
 
 syntax = "proto3";
 
-package accrescent.directory.v1;
+package accrescent.appstore.v1;
 
 option java_multiple_files = true;
-option java_package = "app.accrescent.directory.v1";
+option java_package = "app.accrescent.appstore.v1";
 
 // Request defining parameters for retrieving multiple app listings.
 message ListAppListingsRequest {

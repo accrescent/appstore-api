@@ -4,13 +4,13 @@ Copyright 2025 Logan Magee
 SPDX-License-Identifier: MPL-2.0
 -->
 
-# Accrescent Directory API
+# Accrescent App Store API
 
-The Accrescent directory API definitions.
+The Accrescent app store API definitions.
 
 ## About
 
-The directory API is the gRPC API used by Accrescent clients to retrieve information about apps
+The app store API is the gRPC API used by Accrescent clients to retrieve information about apps
 available in the store. Specifically, it allows clients to:
 
 - List apps available for installation in the store
@@ -20,7 +20,7 @@ available in the store. Specifically, it allows clients to:
 - Determine whether an app is compatible with a device
 - ...and more
 
-API definitions are published to [Buf] at the [directory API BSR repository], which also generates
+API definitions are published to [Buf] at the [app store API BSR repository], which also generates
 client SDKs.
 
 ## Versioning policy
@@ -32,6 +32,6 @@ Semantic Versioning rules; however, server implementers may experience breaking 
 versions.
 
 [Buf]: https://buf.build
-[Buf-generated SDKs]: https://buf.build/accrescent/directory-api/sdks
-[directory API BSR repository]: https://buf.build/accrescent/directory-api
+[Buf-generated SDKs]: https://buf.build/accrescent/appstore-api/sdks
+[app store API BSR repository]: https://buf.build/accrescent/appstore-api
 [semantic versioning]: https://semver.org

@@ -1,19 +1,19 @@
-// Copyright 2025 Logan Magee
+// Copyright 2024 Logan Magee
 //
 // SPDX-License-Identifier: MPL-2.0
 
 syntax = "proto3";
 
-package accrescent.directory.v1;
+package accrescent.appstore.v1;
 
 import "buf/validate/validate.proto";
 
 option java_multiple_files = true;
-option java_package = "app.accrescent.directory.v1";
+option java_package = "app.accrescent.appstore.v1";
 
-// Request defining parameters for retrieving an app's package info.
-message GetAppPackageInfoRequest {
-  // The application ID of the app to retrieve package info for.
+// Request defining parameters for retrieving an app listing.
+message GetAppListingRequest {
+  // The application ID of the listing to retrieve.
   optional string app_id = 1 [
     (buf.validate.field).required = true,
     // According to
@@ -30,4 +30,8 @@ message GetAppPackageInfoRequest {
       max_bytes: 128
     }
   ];
+
+  // The preferred languages for listings as BCP-47 language tags in order from
+  // most preferred to least preferred.
+  repeated string preferred_languages = 2;
 }

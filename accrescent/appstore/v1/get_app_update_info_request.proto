@@ -1,19 +1,20 @@
-// Copyright 2024 Logan Magee
+// Copyright 2025 Logan Magee
 //
 // SPDX-License-Identifier: MPL-2.0
 
 syntax = "proto3";
 
-package accrescent.directory.v1;
+package accrescent.appstore.v1;
 
+import "accrescent/appstore/v1/device_attributes.proto";
 import "buf/validate/validate.proto";
 
 option java_multiple_files = true;
-option java_package = "app.accrescent.directory.v1";
+option java_package = "app.accrescent.appstore.v1";
 
-// Request defining parameters for retrieving an app listing.
-message GetAppListingRequest {
-  // The application ID of the listing to retrieve.
+// Request defining parameters to retrieving an app's update info.
+message GetAppUpdateInfoRequest {
+  // The application ID of the update info to retrieve.
   optional string app_id = 1 [
     (buf.validate.field).required = true,
     // According to
@@ -31,7 +32,14 @@ message GetAppListingRequest {
     }
   ];
 
-  // The preferred languages for listings as BCP-47 language tags in order from
-  // most preferred to least preferred.
-  repeated string preferred_languages = 2;
+  // The current device's hardware and OS attributes used to determine app
+  // compatibility, download size, etc.
+  DeviceAttributes device_attributes = 2 [(buf.validate.field).required = true];
+
+  // The base version of the app to get update info from, i.e., the currently
+  // installed version.
+  optional uint64 base_version_code = 3 [
+    (buf.validate.field).required = true,
+    (buf.validate.field).uint64.gt = 0
+  ];
 }
