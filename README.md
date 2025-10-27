@@ -1,7 +1,7 @@
 <!--
 Copyright 2025 Logan Magee
 
-SPDX-License-Identifier: MPL-2.0
+SPDX-License-Identifier: Apache-2.0
 -->
 
 # Accrescent App Store API
