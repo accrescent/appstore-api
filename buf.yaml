@@ -8,7 +8,7 @@ modules:
     name: buf.build/accrescent/appstore-api
 deps:
   - buf.build/accrescent/android-bundle:v1.1.0
-  - buf.build/bufbuild/protovalidate:v1.0.0
+  - buf.build/bufbuild/protovalidate:v1.1.0
 lint:
   use:
     - STANDARD
