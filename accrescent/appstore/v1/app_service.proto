@@ -16,12 +16,15 @@ import "accrescent/appstore/v1/get_app_update_info_request.proto";
 import "accrescent/appstore/v1/get_app_update_info_response.proto";
 import "accrescent/appstore/v1/list_app_listings_request.proto";
 import "accrescent/appstore/v1/list_app_listings_response.proto";
+import "google/api/client.proto";
 
 option java_multiple_files = true;
 option java_package = "app.accrescent.appstore.v1";
 
 // Service providing RPCs for querying all Accrescent apps.
 service AppService {
+  option (google.api.default_host) = "appstore-api.accrescent.app";
+
   // Retrieves a single app's listing.
   //
   // The following status codes have defined meanings:
