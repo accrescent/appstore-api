@@ -31,10 +31,14 @@ service AppService {
   //
   // - INVALID_ARGUMENT: the request parameters are invalid
   // - NOT_FOUND: an app with the provided ID could not be found
-  rpc GetAppListing(GetAppListingRequest) returns (GetAppListingResponse);
+  rpc GetAppListing(GetAppListingRequest) returns (GetAppListingResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
 
   // Retrieves a list of unique app listings.
-  rpc ListAppListings(ListAppListingsRequest) returns (ListAppListingsResponse);
+  rpc ListAppListings(ListAppListingsRequest) returns (ListAppListingsResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
 
   // Retrieves an app's package information.
   //
@@ -42,7 +46,9 @@ service AppService {
   //
   // - INVALID_ARGUMENT: the request parameters are invalid
   // - NOT_FOUND: an app with the provided ID could not be found
-  rpc GetAppPackageInfo(GetAppPackageInfoRequest) returns (GetAppPackageInfoResponse);
+  rpc GetAppPackageInfo(GetAppPackageInfoRequest) returns (GetAppPackageInfoResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
 
   // Retrieves an app's download information.
   //
@@ -51,7 +57,9 @@ service AppService {
   // - INVALID_ARGUMENT: the request parameters are invalid
   // - NOT_FOUND: an app with the provided ID could not be found
   // - FAILED_PRECONDITION: the app is incompatible with the specified device
-  rpc GetAppDownloadInfo(GetAppDownloadInfoRequest) returns (GetAppDownloadInfoResponse);
+  rpc GetAppDownloadInfo(GetAppDownloadInfoRequest) returns (GetAppDownloadInfoResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
 
   // Retrieves an app's update information.
   //
@@ -60,5 +68,7 @@ service AppService {
   // - INVALID_ARGUMENT: the request parameters are invalid
   // - NOT_FOUND: an app with the provided ID could not be found
   // - FAILED_PRECONDITION: the app is incompatible with the specified device
-  rpc GetAppUpdateInfo(GetAppUpdateInfoRequest) returns (GetAppUpdateInfoResponse);
+  rpc GetAppUpdateInfo(GetAppUpdateInfoRequest) returns (GetAppUpdateInfoResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
 }
